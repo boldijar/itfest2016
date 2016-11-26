@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.loginregister.LoginRegisterService;
+import com.bolnizar.itfest.modpanel.ModeratorPanelService;
 import com.bolnizar.itfest.test.TestService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -97,4 +98,8 @@ public class ApiModule {
         return retrofit.create(LoginRegisterService.class);
     }
 
+    @Provides
+    ModeratorPanelService provideModeratorPanelService(final Retrofit retrofit) {
+        return retrofit.create(ModeratorPanelService.class);
+    }
 }

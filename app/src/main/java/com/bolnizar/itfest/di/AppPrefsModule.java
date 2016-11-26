@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 
 import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.R;
+import com.bolnizar.itfest.data.BooleanPreference;
 import com.bolnizar.itfest.data.IntegerPreference;
+import com.bolnizar.itfest.utils.Constants;
 
 import javax.inject.Named;
 
@@ -21,8 +23,14 @@ public class AppPrefsModule {
     }
 
     @Provides
-    IntegerPreference provideInt( SharedPreferences sharedPreferences){
-        return new IntegerPreference(sharedPreferences,"asd");
+    IntegerPreference provideInt(SharedPreferences sharedPreferences) {
+        return new IntegerPreference(sharedPreferences, "asd");
+    }
+
+    @Provides
+    @Named(Constants.PREF_USER_MODERATOR)
+    BooleanPreference provideUserModerator(SharedPreferences sharedPreferences) {
+        return new BooleanPreference(sharedPreferences, Constants.PREF_USER_MODERATOR);
     }
 
 }

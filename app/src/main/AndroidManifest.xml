@@ -22,6 +22,10 @@
         </activity>
         <activity android:name=".activities.RegisterActivity">
         </activity>
+        <activity android:name=".activities.HomeActivity">
+        </activity>
+        <activity android:name=".activities.ModeratorPanelActivity">
+        </activity>
     </application>
 
 </manifest>

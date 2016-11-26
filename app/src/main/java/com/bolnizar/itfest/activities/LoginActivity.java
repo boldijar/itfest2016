@@ -43,7 +43,8 @@ public class LoginActivity extends BaseActivity implements LoginRegisterView {
 
     @Override
     public void showSuccess(boolean success) {
-
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 
     @Override

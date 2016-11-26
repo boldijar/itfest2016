@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ITFest</string>
+    <string name="app_name">Coursy</string>
     <string name="register_email">Your email…</string>
     <string name="register_password">Your password…</string>
     <string name="register_login_register">login / register</string>
@@ -13,4 +13,11 @@
     <string name="register_new_acc">Register new account</string>
     <string name="email_used">Email already in use</string>
     <string name="register_success">Register was successful</string>
+    <string name="moderator_panel">Moderator panel</string>
+    <string name="give_access">Give moderator access</string>
+    <string name="remove_access">Remove moderator access</string>
+    <string name="user_email">User email…</string>
+    <string name="email_not_found">User with the email provided not found</string>
+    <string name="gave_access">Moderator access was given to provided user</string>
+    <string name="user_is_mod">User is already a moderator</string>
 </resources>

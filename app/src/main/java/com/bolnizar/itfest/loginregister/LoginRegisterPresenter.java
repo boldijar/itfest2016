@@ -4,12 +4,15 @@ import android.content.Context;
 
 import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.base.Presenter;
+import com.bolnizar.itfest.data.BooleanPreference;
 import com.bolnizar.itfest.data.models.User;
 import com.bolnizar.itfest.data.models.UserType;
 import com.bolnizar.itfest.di.InjectionHelper;
+import com.bolnizar.itfest.utils.Constants;
 import com.bolnizar.itfest.utils.Utils;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -24,6 +27,9 @@ public class LoginRegisterPresenter extends Presenter<LoginRegisterView> {
 
     @Inject
     LoginRegisterService mLoginRegisterService;
+    @Inject
+    @Named(Constants.PREF_USER_MODERATOR)
+    BooleanPreference mUserIsModerator;
 
     public LoginRegisterPresenter(LoginRegisterView loginRegisterView, Context context) {
         super(loginRegisterView, context);
@@ -61,6 +67,7 @@ public class LoginRegisterPresenter extends Presenter<LoginRegisterView> {
         if (loginRegisterResponse != null && loginRegisterResponse.users != null && loginRegisterResponse.users.size() != 0) {
             for (User user : loginRegisterResponse.users) {
                 if (email.equals(user.email)) {
+                    mUserIsModerator.set(UserType.TYPE_MODERATOR.equals(user.type));
                     getView().showMessage(R.string.login_success);
                     getView().showSuccess(true);
                     return;

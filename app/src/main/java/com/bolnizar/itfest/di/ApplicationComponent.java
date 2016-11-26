@@ -2,10 +2,12 @@ package com.bolnizar.itfest.di;
 
 import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.MainActivity;
+import com.bolnizar.itfest.activities.HomeActivity;
 import com.bolnizar.itfest.api.ApiModule;
 import com.bolnizar.itfest.data.DebugDataModule;
 import com.bolnizar.itfest.di.scopes.ApplicationScope;
 import com.bolnizar.itfest.loginregister.LoginRegisterPresenter;
+import com.bolnizar.itfest.modpanel.ModeratorPanelPresenter;
 import com.bolnizar.itfest.test.TestPresenter;
 
 import javax.inject.Named;
@@ -29,4 +31,8 @@ public interface ApplicationComponent {
     void inject(TestPresenter testPresenter);
 
     void inject(LoginRegisterPresenter loginRegisterPresenter);
+
+    void inject(HomeActivity homeActivity);
+
+    void inject(ModeratorPanelPresenter moderatorPanelPresenter);
 }
