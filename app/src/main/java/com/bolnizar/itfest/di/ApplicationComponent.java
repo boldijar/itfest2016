@@ -16,6 +16,7 @@ import com.bolnizar.itfest.events.EventsAdapter;
 import com.bolnizar.itfest.events.EventsPresenter;
 import com.bolnizar.itfest.loginregister.LoginRegisterPresenter;
 import com.bolnizar.itfest.modpanel.ModeratorPanelPresenter;
+import com.bolnizar.itfest.subscriptionnextevent.NextEventPresenter;
 import com.bolnizar.itfest.test.TestPresenter;
 
 import javax.inject.Named;
@@ -59,4 +60,6 @@ public interface ApplicationComponent {
     void inject(LoginActivity loginActivity);
 
     void inject(EventsAdapter eventsAdapter);
+
+    void inject(NextEventPresenter nextEventPresenter);
 }

@@ -1,6 +1,7 @@
 package com.bolnizar.itfest.activities;
 
 import android.content.Intent;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,7 +13,11 @@ import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.data.BooleanPreference;
 import com.bolnizar.itfest.data.IntegerPreference;
 import com.bolnizar.itfest.di.InjectionHelper;
+import com.bolnizar.itfest.events.EventPagerAdapter;
+import com.bolnizar.itfest.events.SubscribedEventRecord;
 import com.bolnizar.itfest.persistance.SubscriptionRecord;
+import com.bolnizar.itfest.subscriptionnextevent.NextEventPresenter;
+import com.bolnizar.itfest.subscriptionnextevent.NextEventView;
 import com.bolnizar.itfest.utils.Constants;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.flaviofaria.kenburnsview.RandomTransitionGenerator;
@@ -25,7 +30,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import timber.log.Timber;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements NextEventView {
 
     @BindView(R.id.home_add_classes)
     View mAddClass;
@@ -38,6 +43,12 @@ public class HomeActivity extends AppCompatActivity {
     @Named(Constants.PREF_USER_ID)
     IntegerPreference mUserId;
 
+    @BindView(R.id.pager)
+    ViewPager mViewPager;
+    private NextEventPresenter mNextEventPresenter;
+
+    private EventPagerAdapter mEventPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +58,12 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mAddClass.setVisibility(mUserModerator.get() ? View.VISIBLE : View.GONE);
         setTitle(R.string.app_name);
+        mNextEventPresenter = new NextEventPresenter(this, this);
+        mNextEventPresenter.load();
+
+        mEventPagerAdapter = new EventPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mEventPagerAdapter);
+        mEventPagerAdapter.update();
     }
 
     @OnClick(R.id.home_search_classes)
@@ -78,6 +95,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         if (item.getItemId() == R.id.action_logout) {
             SubscriptionRecord.deleteAll(SubscriptionRecord.class);
+            SubscribedEventRecord.deleteAll(SubscribedEventRecord.class);
             mUserId.set(-1);
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -86,4 +104,9 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void eventsSaved() {
+        Timber.d("Saved events: " + SubscribedEventRecord.listAll(SubscribedEventRecord.class));
+        mEventPagerAdapter.update();
+    }
 }

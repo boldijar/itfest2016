@@ -12,4 +12,6 @@ public class Event {
     public int roomId;
     public Room[] rooms;
     public User[] users;
+
+    public long practicDate;
 }

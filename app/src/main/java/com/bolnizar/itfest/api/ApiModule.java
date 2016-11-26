@@ -8,6 +8,7 @@ import com.bolnizar.itfest.events.AddEventService;
 import com.bolnizar.itfest.events.EventsService;
 import com.bolnizar.itfest.loginregister.LoginRegisterService;
 import com.bolnizar.itfest.modpanel.ModeratorPanelService;
+import com.bolnizar.itfest.subscriptionnextevent.NextEventService;
 import com.bolnizar.itfest.test.TestService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -127,5 +128,10 @@ public class ApiModule {
     @Provides
     AddEventService provideAddEventService(final Retrofit retrofit) {
         return retrofit.create(AddEventService.class);
+    }
+
+    @Provides
+    NextEventService provideNextEventService(final Retrofit retrofit) {
+        return retrofit.create(NextEventService.class);
     }
 }

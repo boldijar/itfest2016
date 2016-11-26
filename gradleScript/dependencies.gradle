@@ -67,5 +67,6 @@ ext {
     // Testing
     junit = 'junit:junit:4.12'
     ken='com.flaviofaria:kenburnsview:1.0.7'
+    pretty='org.ocpsoft.prettytime:prettytime:prettytime:3.2.7.Final'
 
 }
