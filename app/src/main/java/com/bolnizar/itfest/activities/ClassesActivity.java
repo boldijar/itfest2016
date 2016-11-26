@@ -1,17 +1,16 @@
 package com.bolnizar.itfest.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
 
 import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.classes.ClassesAdapter;
 import com.bolnizar.itfest.classes.ClassesPresenter;
 import com.bolnizar.itfest.classes.ClassesView;
-import com.bolnizar.itfest.data.models.*;
+import com.bolnizar.itfest.classes.SubscriptionsPresenter;
+import com.bolnizar.itfest.classes.SubscriptionsView;
 import com.bolnizar.itfest.data.models.Class;
 
 import java.util.ArrayList;
@@ -20,15 +19,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
-import timber.log.Timber;
 
-public class ClassesActivity extends BaseActivity implements ClassesView {
+public class ClassesActivity extends BaseActivity implements ClassesView, SubscriptionsView, ClassesAdapter.OnClassClick {
     @BindView(R.id.classes_recycler)
     RecyclerView mRecyclerView;
     @BindView(R.id.classes_empty)
     View mEmpty;
     private ClassesPresenter mClassesPresenter;
-    private ClassesAdapter mClassesAdapter = new ClassesAdapter();
+    private ClassesAdapter mClassesAdapter = new ClassesAdapter(this);
+    private SubscriptionsPresenter mSubscriptionsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,8 @@ public class ClassesActivity extends BaseActivity implements ClassesView {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mClassesAdapter);
         mClassesPresenter = new ClassesPresenter(this, this);
+        mSubscriptionsPresenter = new SubscriptionsPresenter(this, this);
+        mSubscriptionsPresenter.loadSubs();
         showClasses(new ArrayList<Class>());
     }
 
@@ -52,5 +53,19 @@ public class ClassesActivity extends BaseActivity implements ClassesView {
     public void showClasses(List<Class> classes) {
         mEmpty.setVisibility(classes.size() != 0 ? View.GONE : View.VISIBLE);
         mClassesAdapter.setClasses(classes);
+    }
+
+    @Override
+    public void clicked(Class clas, boolean wantsToSubscribe) {
+        if (wantsToSubscribe) {
+            mSubscriptionsPresenter.subscribe(clas.id);
+        } else {
+            mSubscriptionsPresenter.unsubscribe(clas.id);
+        }
+    }
+
+    @Override
+    public void subsWereUpdated() {
+        mClassesAdapter.updateSubs();
     }
 }

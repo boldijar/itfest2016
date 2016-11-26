@@ -28,6 +28,12 @@ public class AppPrefsModule {
     }
 
     @Provides
+    @Named(Constants.PREF_USER_ID)
+    IntegerPreference provideUserId(SharedPreferences sharedPreferences) {
+        return new IntegerPreference(sharedPreferences, Constants.PREF_USER_ID, 9);
+    }
+
+    @Provides
     @Named(Constants.PREF_USER_MODERATOR)
     BooleanPreference provideUserModerator(SharedPreferences sharedPreferences) {
         return new BooleanPreference(sharedPreferences, Constants.PREF_USER_MODERATOR);

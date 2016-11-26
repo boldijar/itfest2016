@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.classes.ClassesService;
+import com.bolnizar.itfest.classes.SubscriptionsService;
 import com.bolnizar.itfest.loginregister.LoginRegisterService;
 import com.bolnizar.itfest.modpanel.ModeratorPanelService;
 import com.bolnizar.itfest.test.TestService;
@@ -107,5 +108,10 @@ public class ApiModule {
     @Provides
     ClassesService provideClassesService(final Retrofit retrofit) {
         return retrofit.create(ClassesService.class);
+    }
+
+    @Provides
+    SubscriptionsService provideSubscriptionsService(final Retrofit retrofit) {
+        return retrofit.create(SubscriptionsService.class);
     }
 }

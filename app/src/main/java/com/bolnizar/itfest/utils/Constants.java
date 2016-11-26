@@ -6,4 +6,5 @@ package com.bolnizar.itfest.utils;
 public interface Constants {
 
     String PREF_USER_MODERATOR = "usermod";
+    String PREF_USER_ID = "userid";
 }

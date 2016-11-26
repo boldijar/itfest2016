@@ -23,4 +23,7 @@
     <string name="search_classes">Search for classes</string>
     <string name="class_name">Class name…</string>
     <string name="subscribe">Subscribe</string>
+    <string name="unsubscribe">unsubscribe</string>
+    <string name="subscribed_success">Subscribed successfully</string>
+    <string name="unsubscribed_success">Unsubscribed successfully</string>
 </resources>
