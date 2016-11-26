@@ -71,7 +71,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
         final Event event = mEvents.get(position);
         holder.name.setText(event.name);
         holder.address.setText(event.rooms[0].address);
-        holder.room.setText(event.rooms[0].name);
+        holder.room.setText(holder.room.getContext().getString(R.string.room_room) + " " + event.rooms[0].name);
         if (event.repeatingInterval == null) {
             String niceDate = mSimpleDateFormat.format(new Date(event.date));
             holder.date.setText(niceDate);

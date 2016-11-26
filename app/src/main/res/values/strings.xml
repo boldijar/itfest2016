@@ -51,4 +51,5 @@
     <string name="repetable_days_invalid">Invalid days count. Must be an integer, greater than 0.</string>
     <string name="logout">Logout</string>
     <string name="event_deleted">Event was deleted.</string>
+    <string name="room_room">"Room "</string>
 </resources>

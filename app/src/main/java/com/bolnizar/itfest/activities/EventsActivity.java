@@ -79,7 +79,7 @@ public class EventsActivity extends BaseActivity implements EventsView, SwipeRef
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (mUserModerator.get()) {
-            getMenuInflater().inflate(R.menu.home_moderator, menu);
+            getMenuInflater().inflate(R.menu.events_moderator, menu);
             return true;
         }
         return super.onCreateOptionsMenu(menu);
