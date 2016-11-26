@@ -11,7 +11,7 @@ import rx.Observable;
  */
 public interface AddClassService {
 
-    @GET("schools?order=name,asc")
+    @GET("classes?order=name,asc")
     Observable<SchoolsResponse> getSchools();
 
     @POST("schools")
