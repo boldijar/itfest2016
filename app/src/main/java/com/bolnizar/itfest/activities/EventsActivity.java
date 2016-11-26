@@ -124,6 +124,11 @@ public class EventsActivity extends BaseActivity implements EventsView, SwipeRef
     }
 
     @Override
+    public void showComments(Event event) {
+        CommentsFragment.newInstance(event.id).show(getSupportFragmentManager(),"TAG");
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQ_ADD_EVENT && resultCode == RESULT_OK) {

@@ -92,6 +92,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
                 mEventListener.deleteEvent(event);
             }
         });
+        holder.comments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEventListener.showComments(event);
+            }
+        });
         holder.delete.setVisibility(mUserId.get() == event.userId ? View.VISIBLE : View.GONE);
     }
 
@@ -106,6 +112,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
         void eventClicked(Event event);
 
         void deleteEvent(Event event);
+
+        void showComments(Event event);
     }
 
     public static class EventsHolder extends RecyclerView.ViewHolder {
@@ -122,6 +130,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
         TextView date;
         @BindView(R.id.item_event_delete)
         View delete;
+        @BindView(R.id.item_event_comments)
+        View comments;
 
         public EventsHolder(ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event, parent, false));

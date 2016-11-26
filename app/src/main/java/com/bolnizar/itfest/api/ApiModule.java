@@ -4,6 +4,7 @@ import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.classes.AddClassService;
 import com.bolnizar.itfest.classes.ClassesService;
 import com.bolnizar.itfest.classes.SubscriptionsService;
+import com.bolnizar.itfest.comments.CommentsService;
 import com.bolnizar.itfest.events.AddEventService;
 import com.bolnizar.itfest.events.EventsService;
 import com.bolnizar.itfest.loginregister.LoginRegisterService;
@@ -133,5 +134,10 @@ public class ApiModule {
     @Provides
     NextEventService provideNextEventService(final Retrofit retrofit) {
         return retrofit.create(NextEventService.class);
+    }
+
+    @Provides
+    CommentsService provideComm(final Retrofit retrofit) {
+        return retrofit.create(CommentsService.class);
     }
 }

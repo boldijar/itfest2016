@@ -156,7 +156,7 @@ public class AddEventToClassActivity extends BaseActivity implements DatePickerD
             return;
         }
         if (mSeletedRoom == null) {
-            showMessage(R.string.name_is_empty);
+            showMessage(R.string.room_is_empty);
             return;
         }
         Integer repetableIntervalInteger = null;
