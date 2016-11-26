@@ -30,7 +30,7 @@ public class AppPrefsModule {
     @Provides
     @Named(Constants.PREF_USER_ID)
     IntegerPreference provideUserId(SharedPreferences sharedPreferences) {
-        return new IntegerPreference(sharedPreferences, Constants.PREF_USER_ID, 9);
+        return new IntegerPreference(sharedPreferences, Constants.PREF_USER_ID, -1);
     }
 
     @Provides

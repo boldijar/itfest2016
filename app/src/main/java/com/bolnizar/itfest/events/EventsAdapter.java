@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bolnizar.itfest.R;
+import com.bolnizar.itfest.data.IntegerPreference;
 import com.bolnizar.itfest.data.models.Class;
 import com.bolnizar.itfest.data.models.Event;
+import com.bolnizar.itfest.di.InjectionHelper;
+import com.bolnizar.itfest.utils.Constants;
 
 import org.w3c.dom.Text;
 
@@ -19,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +43,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
         mEventListener = eventListener;
     }
 
+    @Inject
+    @Named(Constants.PREF_USER_ID)
+    IntegerPreference mUserId;
+
     public void setEvents(List<Event> events) {
         for (Event event : events) {
             if (event.repeatingInterval != null) {
@@ -52,6 +62,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
 
     @Override
     public EventsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        InjectionHelper.getApplicationComponent(parent.getContext()).inject(this);
         return new EventsHolder(parent);
     }
 
@@ -75,6 +86,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
                 mEventListener.eventClicked(event);
             }
         });
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mEventListener.deleteEvent(event);
+            }
+        });
+        holder.delete.setVisibility(mUserId.get() == event.userId ? View.VISIBLE : View.GONE);
     }
 
 
@@ -86,6 +104,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
 
     public interface EventsListener {
         void eventClicked(Event event);
+
+        void deleteEvent(Event event);
     }
 
     public static class EventsHolder extends RecyclerView.ViewHolder {
@@ -100,6 +120,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsHold
         View navigation;
         @BindView(R.id.event_date)
         TextView date;
+        @BindView(R.id.item_event_delete)
+        View delete;
 
         public EventsHolder(ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event, parent, false));

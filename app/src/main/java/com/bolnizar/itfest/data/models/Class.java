@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class Class {
     public int id;
     public String name;
+    public int schoolId;
     public School[] schools;
 
     @Override

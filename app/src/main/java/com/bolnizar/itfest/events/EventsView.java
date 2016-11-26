@@ -11,4 +11,6 @@ public interface EventsView {
     void showEvent(List<Event> events);
 
     void showMessage(int messageId);
+
+    void eventDeleted();
 }

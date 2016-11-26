@@ -2,7 +2,9 @@ package com.bolnizar.itfest.di;
 
 import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.MainActivity;
+import com.bolnizar.itfest.activities.EventsActivity;
 import com.bolnizar.itfest.activities.HomeActivity;
+import com.bolnizar.itfest.activities.LoginActivity;
 import com.bolnizar.itfest.api.ApiModule;
 import com.bolnizar.itfest.classes.AddClassPresenter;
 import com.bolnizar.itfest.classes.ClassesPresenter;
@@ -10,6 +12,7 @@ import com.bolnizar.itfest.classes.SubscriptionsPresenter;
 import com.bolnizar.itfest.data.DebugDataModule;
 import com.bolnizar.itfest.di.scopes.ApplicationScope;
 import com.bolnizar.itfest.events.AddEventPresenter;
+import com.bolnizar.itfest.events.EventsAdapter;
 import com.bolnizar.itfest.events.EventsPresenter;
 import com.bolnizar.itfest.loginregister.LoginRegisterPresenter;
 import com.bolnizar.itfest.modpanel.ModeratorPanelPresenter;
@@ -50,4 +53,10 @@ public interface ApplicationComponent {
     void inject(AddClassPresenter addClassPresenter);
 
     void inject(AddEventPresenter addEventPresenter);
+
+    void inject(EventsActivity eventsActivity);
+
+    void inject(LoginActivity loginActivity);
+
+    void inject(EventsAdapter eventsAdapter);
 }

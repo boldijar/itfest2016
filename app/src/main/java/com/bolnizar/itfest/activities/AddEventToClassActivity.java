@@ -141,6 +141,7 @@ public class AddEventToClassActivity extends BaseActivity implements DatePickerD
 
     @Override
     public void showSuccess() {
+        setResult(RESULT_OK);
         mName.setText(null);
     }
 

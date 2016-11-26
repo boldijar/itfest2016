@@ -2,15 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_start_moderator_panel"
-        android:icon="@drawable/ic_stars_white_24dp"
-        android:title="@string/moderator_panel"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/action_logout"
         android:icon="@drawable/ic_exit_to_app_white_24dp"
         android:title="@string/logout"
         app:showAsAction="ifRoom"/>
+
 
 </menu>

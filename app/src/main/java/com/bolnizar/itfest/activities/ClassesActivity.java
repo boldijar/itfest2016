@@ -1,8 +1,11 @@
 package com.bolnizar.itfest.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.bolnizar.itfest.R;
@@ -11,10 +14,15 @@ import com.bolnizar.itfest.classes.ClassesPresenter;
 import com.bolnizar.itfest.classes.ClassesView;
 import com.bolnizar.itfest.classes.SubscriptionsPresenter;
 import com.bolnizar.itfest.classes.SubscriptionsView;
+import com.bolnizar.itfest.data.BooleanPreference;
 import com.bolnizar.itfest.data.models.Class;
+import com.bolnizar.itfest.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +33,7 @@ public class ClassesActivity extends BaseActivity implements ClassesView, Subscr
     RecyclerView mRecyclerView;
     @BindView(R.id.classes_empty)
     View mEmpty;
+
     private ClassesPresenter mClassesPresenter;
     private ClassesAdapter mClassesAdapter = new ClassesAdapter(this);
     private SubscriptionsPresenter mSubscriptionsPresenter;
@@ -66,7 +75,7 @@ public class ClassesActivity extends BaseActivity implements ClassesView, Subscr
 
     @Override
     public void classClicked(Class clas) {
-        startActivity(EventsActivity.createIntent(this, clas.id));
+        startActivity(EventsActivity.createIntent(this, clas.id, clas.schoolId));
     }
 
     @Override

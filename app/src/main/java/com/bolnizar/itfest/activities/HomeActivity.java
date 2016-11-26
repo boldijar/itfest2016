@@ -10,7 +10,9 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.data.BooleanPreference;
+import com.bolnizar.itfest.data.IntegerPreference;
 import com.bolnizar.itfest.di.InjectionHelper;
+import com.bolnizar.itfest.persistance.SubscriptionRecord;
 import com.bolnizar.itfest.utils.Constants;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.flaviofaria.kenburnsview.RandomTransitionGenerator;
@@ -32,6 +34,9 @@ public class HomeActivity extends AppCompatActivity {
     @Inject
     @Named(Constants.PREF_USER_MODERATOR)
     BooleanPreference mUserModerator;
+    @Inject
+    @Named(Constants.PREF_USER_ID)
+    IntegerPreference mUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +47,6 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mAddClass.setVisibility(mUserModerator.get() ? View.VISIBLE : View.GONE);
         setTitle(R.string.app_name);
-
-        startActivity(AddEventToClassActivity.createIntent(this, 3, 1));
     }
 
     @OnClick(R.id.home_search_classes)
@@ -61,8 +64,10 @@ public class HomeActivity extends AppCompatActivity {
         if (mUserModerator.get()) {
             getMenuInflater().inflate(R.menu.home_moderator, menu);
             return true;
+        } else {
+            getMenuInflater().inflate(R.menu.home_normal, menu);
+            return true;
         }
-        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -70,6 +75,13 @@ public class HomeActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_start_moderator_panel) {
             startActivity(new Intent(this, ModeratorPanelActivity.class));
             return true;
+        }
+        if (item.getItemId() == R.id.action_logout) {
+            SubscriptionRecord.deleteAll(SubscriptionRecord.class);
+            mUserId.set(-1);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

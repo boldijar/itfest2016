@@ -48,4 +48,27 @@ public class EventsPresenter extends Presenter<EventsView> {
                 });
 
     }
+
+    public void delete(int id) {
+        mEventsService.deleteEvent(id).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                        getView().showMessage(R.string.unknown_error);
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        getView().eventDeleted();
+                        getView().showMessage(R.string.event_deleted);
+                    }
+                });
+    }
 }

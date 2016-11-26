@@ -5,6 +5,7 @@ import android.content.Context;
 import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.base.Presenter;
 import com.bolnizar.itfest.data.BooleanPreference;
+import com.bolnizar.itfest.data.IntegerPreference;
 import com.bolnizar.itfest.data.models.User;
 import com.bolnizar.itfest.data.models.UserType;
 import com.bolnizar.itfest.di.InjectionHelper;
@@ -30,6 +31,9 @@ public class LoginRegisterPresenter extends Presenter<LoginRegisterView> {
     @Inject
     @Named(Constants.PREF_USER_MODERATOR)
     BooleanPreference mUserIsModerator;
+    @Inject
+    @Named(Constants.PREF_USER_ID)
+    IntegerPreference mUserId;
 
     public LoginRegisterPresenter(LoginRegisterView loginRegisterView, Context context) {
         super(loginRegisterView, context);
@@ -68,6 +72,7 @@ public class LoginRegisterPresenter extends Presenter<LoginRegisterView> {
             for (User user : loginRegisterResponse.users) {
                 if (email.equals(user.email)) {
                     mUserIsModerator.set(UserType.TYPE_MODERATOR.equals(user.type));
+                    mUserId.set(user.id);
                     getView().showMessage(R.string.login_success);
                     getView().showSuccess(true);
                     return;

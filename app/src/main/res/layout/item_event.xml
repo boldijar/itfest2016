@@ -55,4 +55,15 @@
         android:textColor="@color/colorAccent"
         android:textSize="15sp"/>
 
+    <View
+        android:id="@+id/item_event_delete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="10dp"
+        android:background="@drawable/ic_remove_circle_white_24dp"
+        android:backgroundTint="@color/colorAccent"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="5dp"/>
 </android.support.v7.widget.CardView>
