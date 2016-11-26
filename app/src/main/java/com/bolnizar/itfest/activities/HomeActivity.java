@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.data.BooleanPreference;
 import com.bolnizar.itfest.di.InjectionHelper;
 import com.bolnizar.itfest.utils.Constants;
+import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.flaviofaria.kenburnsview.RandomTransitionGenerator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,7 +27,8 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.home_add_classes)
     View mAddClass;
-
+    @BindView(R.id.home_ken)
+    KenBurnsView mKenBurnsView;
     @Inject
     @Named(Constants.PREF_USER_MODERATOR)
     BooleanPreference mUserModerator;

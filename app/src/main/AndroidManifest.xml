@@ -46,6 +46,8 @@
         </activity>
         <activity android:name=".activities.AddClassActivity">
         </activity>
+        <activity android:name=".activities.AddEventToClassActivity">
+        </activity>
     </application>
 
 </manifest>

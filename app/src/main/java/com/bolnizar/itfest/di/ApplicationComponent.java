@@ -4,6 +4,7 @@ import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.MainActivity;
 import com.bolnizar.itfest.activities.HomeActivity;
 import com.bolnizar.itfest.api.ApiModule;
+import com.bolnizar.itfest.classes.AddClassPresenter;
 import com.bolnizar.itfest.classes.ClassesPresenter;
 import com.bolnizar.itfest.classes.SubscriptionsPresenter;
 import com.bolnizar.itfest.data.DebugDataModule;
@@ -44,4 +45,6 @@ public interface ApplicationComponent {
     void inject(SubscriptionsPresenter subscriptionsPresenter);
 
     void inject(EventsPresenter eventsPresenter);
+
+    void inject(AddClassPresenter addClassPresenter);
 }

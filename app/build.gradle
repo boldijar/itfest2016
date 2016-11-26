@@ -50,6 +50,7 @@ dependencies {
     // ReactiveX
     compile rxJava
     compile rxAndroid
+    compile ken
 
     // Others
     compile timber

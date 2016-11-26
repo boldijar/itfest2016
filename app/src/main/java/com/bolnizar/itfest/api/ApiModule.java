@@ -1,6 +1,7 @@
 package com.bolnizar.itfest.api;
 
 import com.bolnizar.itfest.BaseApp;
+import com.bolnizar.itfest.classes.AddClassService;
 import com.bolnizar.itfest.classes.ClassesService;
 import com.bolnizar.itfest.classes.SubscriptionsService;
 import com.bolnizar.itfest.events.EventsService;
@@ -115,5 +116,10 @@ public class ApiModule {
     @Provides
     EventsService provideEventsService(final Retrofit retrofit) {
         return retrofit.create(EventsService.class);
+    }
+
+    @Provides
+    AddClassService providAddClassService(final Retrofit retrofit) {
+        return retrofit.create(AddClassService.class);
     }
 }

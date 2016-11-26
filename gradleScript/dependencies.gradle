@@ -66,5 +66,6 @@ ext {
     eventBus = "org.greenrobot:eventbus:3.0.0"
     // Testing
     junit = 'junit:junit:4.12'
+    ken='com.flaviofaria:kenburnsview:1.0.7'
 
 }
