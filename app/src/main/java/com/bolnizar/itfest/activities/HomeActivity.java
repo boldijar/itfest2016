@@ -35,8 +35,8 @@ public class HomeActivity extends AppCompatActivity {
         InjectionHelper.getApplicationComponent(this).inject(this);
         Timber.d("User is moderator ? " + mUserModerator.get());
         setContentView(R.layout.activity_home);
-        mAddClass.setVisibility(mUserModerator.get() ? View.VISIBLE : View.GONE);
         ButterKnife.bind(this);
+        mAddClass.setVisibility(mUserModerator.get() ? View.VISIBLE : View.GONE);
         setTitle(R.string.app_name);
     }
 
