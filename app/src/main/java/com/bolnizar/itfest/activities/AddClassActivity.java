@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.bolnizar.itfest.R;
 
-public class AddClassActivity extends AppCompatActivity {
+public class AddClassActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

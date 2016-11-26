@@ -10,6 +10,7 @@ import com.orm.SugarApp;
 import javax.inject.Inject;
 
 import timber.log.Timber;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by Musafir on 11/25/2016.
@@ -25,6 +26,11 @@ public class BaseApp extends SugarApp {
     public void onCreate() {
         super.onCreate();
         buildGraphAndInject();
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("Lato-Regular.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         Timber.plant(mTimberTree);
     }
 
