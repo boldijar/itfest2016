@@ -37,4 +37,16 @@
     <string name="schools_not_loadd">Schools not loaded yet. Try again maybe</string>
     <string name="fillfields">Please fill in the fields!</string>
     <string name="addeventclass">Add event to class</string>
+    <string name="event_name">Event name</string>
+    <string name="addevent">Add your event</string>
+    <string name="is_repetable">Is repetable</string>
+    <string name="date">Date</string>
+    <string name="repeatxdays">Repeat every X days</string>
+    <string name="room">Room</string>
+    <string name="rooms_not_loaded">Rooms were not loaded yet..wait a little bit</string>
+    <string name="school_without_rooms">The class school doesn\'t have any rooms currently.</string>
+    <string name="event_added">Event was successfully added!</string>
+    <string name="date_is_empty">Date can\'t be empty!</string>
+    <string name="name_is_empty">Name can\'t be empty</string>
+    <string name="repetable_days_invalid">Invalid days count. Must be an integer, greater than 0.</string>
 </resources>

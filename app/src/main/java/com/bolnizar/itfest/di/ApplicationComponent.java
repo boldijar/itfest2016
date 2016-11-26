@@ -9,6 +9,7 @@ import com.bolnizar.itfest.classes.ClassesPresenter;
 import com.bolnizar.itfest.classes.SubscriptionsPresenter;
 import com.bolnizar.itfest.data.DebugDataModule;
 import com.bolnizar.itfest.di.scopes.ApplicationScope;
+import com.bolnizar.itfest.events.AddEventPresenter;
 import com.bolnizar.itfest.events.EventsPresenter;
 import com.bolnizar.itfest.loginregister.LoginRegisterPresenter;
 import com.bolnizar.itfest.modpanel.ModeratorPanelPresenter;
@@ -47,4 +48,6 @@ public interface ApplicationComponent {
     void inject(EventsPresenter eventsPresenter);
 
     void inject(AddClassPresenter addClassPresenter);
+
+    void inject(AddEventPresenter addEventPresenter);
 }

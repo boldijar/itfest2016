@@ -42,6 +42,8 @@ public class HomeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mAddClass.setVisibility(mUserModerator.get() ? View.VISIBLE : View.GONE);
         setTitle(R.string.app_name);
+
+        startActivity(AddEventToClassActivity.createIntent(this, 3, 1));
     }
 
     @OnClick(R.id.home_search_classes)

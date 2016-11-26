@@ -11,10 +11,10 @@ import rx.Observable;
  */
 public interface AddClassService {
 
-    @GET("classes?order=name,asc")
+    @GET("schools?order=name,asc")
     Observable<SchoolsResponse> getSchools();
 
-    @POST("schools")
+    @POST("classes")
     @FormUrlEncoded
     Observable<Integer> addClass(@Field("name") String name, @Field("schoolId") int schoolId);
 

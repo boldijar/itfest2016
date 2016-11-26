@@ -51,21 +51,23 @@ public class AddClassActivity extends BaseActivity implements AddClassView {
 
     @Override
     public void showSuccess(final Integer id) {
-        mSchoolText.setText(null);
-        mClassName.setText(null);
-        mSelectedSchool = null;
-
+        final int schoolId = mSelectedSchool.id;
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(this);
         builder.setMessage("Class successfully created. Want to add events to it?");
         builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                startActivity(AddEventToClassActivity.createIntent(AddClassActivity.this, id));
+                startActivity(AddEventToClassActivity.createIntent(AddClassActivity.this, id, schoolId));
             }
         });
         builder.setNegativeButton(android.R.string.no, null);
         builder.show();
+
+        mSchoolText.setText(null);
+        mClassName.setText(null);
+        mSelectedSchool = null;
+
     }
 
     @OnClick(R.id.add_class_school)
@@ -73,6 +75,7 @@ public class AddClassActivity extends BaseActivity implements AddClassView {
         Timber.d("Touching container...");
         if (mSchools == null || mSchools.size() == 0) {
             Toast.makeText(AddClassActivity.this, R.string.schools_not_loadd, Toast.LENGTH_SHORT).show();
+            mAddClassPresenter.loadSchools();
             return;
         }
 
