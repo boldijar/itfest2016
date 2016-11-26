@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ITFest</string>
+    <string name="register_email">Your email…</string>
+    <string name="register_password">Your password…</string>
+    <string name="register_login_register">login / register</string>
+    <string name="unknown_error">Unknown error..check connection</string>
+    <string name="invalid_login">Invalid login</string>
+    <string name="login_success">Login success</string>
+    <string name="login">Login</string>
+    <string name="register_login">Login</string>
+    <string name="register_register">Register</string>
+    <string name="register_register_account">Register new account</string>
+    <string name="register_new_acc">Register new account</string>
+    <string name="email_used">Email already in use</string>
+    <string name="register_success">Register was successful</string>
 </resources>

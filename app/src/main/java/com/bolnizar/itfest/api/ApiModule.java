@@ -1,11 +1,16 @@
 package com.bolnizar.itfest.api;
 
+import android.util.Log;
+
 import com.bolnizar.itfest.BaseApp;
+import com.bolnizar.itfest.loginregister.LoginRegisterService;
 import com.bolnizar.itfest.test.TestService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.File;
+
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -85,6 +90,11 @@ public class ApiModule {
     @Provides
     TestService provideTestService(final Retrofit retrofit) {
         return retrofit.create(TestService.class);
+    }
+
+    @Provides
+    LoginRegisterService provideLoginRegisterService(final Retrofit retrofit) {
+        return retrofit.create(LoginRegisterService.class);
     }
 
 }
