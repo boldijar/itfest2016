@@ -20,4 +20,7 @@
     <string name="email_not_found">User with the email provided not found</string>
     <string name="gave_access">Moderator access was given to provided user</string>
     <string name="user_is_mod">User is already a moderator</string>
+    <string name="search_classes">Search for classes</string>
+    <string name="class_name">Class name…</string>
+    <string name="subscribe">Subscribe</string>
 </resources>

@@ -16,6 +16,7 @@ ext {
     // ConstraintLayout (alpha)
     constraintLayout = "com.android.support.constraint:constraint-layout:1.0.0-beta4"
 
+    sugar = "com.github.satyan:sugar:1.4"
     // Dagger
     daggerVersion = '2.6.1'
     dagger = [

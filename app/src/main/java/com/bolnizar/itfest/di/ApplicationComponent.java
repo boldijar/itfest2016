@@ -4,6 +4,7 @@ import com.bolnizar.itfest.BaseApp;
 import com.bolnizar.itfest.MainActivity;
 import com.bolnizar.itfest.activities.HomeActivity;
 import com.bolnizar.itfest.api.ApiModule;
+import com.bolnizar.itfest.classes.ClassesPresenter;
 import com.bolnizar.itfest.data.DebugDataModule;
 import com.bolnizar.itfest.di.scopes.ApplicationScope;
 import com.bolnizar.itfest.loginregister.LoginRegisterPresenter;
@@ -35,4 +36,6 @@ public interface ApplicationComponent {
     void inject(HomeActivity homeActivity);
 
     void inject(ModeratorPanelPresenter moderatorPanelPresenter);
+
+    void inject(ClassesPresenter classesPresenter);
 }

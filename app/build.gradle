@@ -28,7 +28,7 @@ dependencies {
 
     compile supportDependencies.appCompat
     compile supportDependencies.design
-
+    compile supportDependencies.cardView
     // Dagger
     apt dagger.compiler
     compile dagger.dagger
@@ -37,6 +37,7 @@ dependencies {
     compile butterKnife.compiler
     compile butterKnife.butterKnife
 
+    compile sugar
     // OkHttp
     compile okHttp.okHttp
     compile okHttp.logging

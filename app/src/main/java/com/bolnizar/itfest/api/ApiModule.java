@@ -3,6 +3,7 @@ package com.bolnizar.itfest.api;
 import android.util.Log;
 
 import com.bolnizar.itfest.BaseApp;
+import com.bolnizar.itfest.classes.ClassesService;
 import com.bolnizar.itfest.loginregister.LoginRegisterService;
 import com.bolnizar.itfest.modpanel.ModeratorPanelService;
 import com.bolnizar.itfest.test.TestService;
@@ -101,5 +102,10 @@ public class ApiModule {
     @Provides
     ModeratorPanelService provideModeratorPanelService(final Retrofit retrofit) {
         return retrofit.create(ModeratorPanelService.class);
+    }
+
+    @Provides
+    ClassesService provideClassesService(final Retrofit retrofit) {
+        return retrofit.create(ClassesService.class);
     }
 }
