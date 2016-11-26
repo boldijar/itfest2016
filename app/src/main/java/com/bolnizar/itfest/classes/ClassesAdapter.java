@@ -11,6 +11,8 @@ import com.bolnizar.itfest.data.models.Class;
 import com.bolnizar.itfest.persistance.SubscriptionRecord;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,6 +34,18 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ClassesH
     }
 
     public void setClasses(List<Class> classes) {
+        for (Class clas : classes) {
+            clas.subscribed = isSubscribed(clas);
+        }
+        Collections.sort(classes, new Comparator<Class>() {
+            @Override
+            public int compare(Class aClass, Class t1) {
+                if (!aClass.subscribed && t1.subscribed) {
+                    return 1;
+                }
+                return -1;
+            }
+        });
         mClasses = classes;
         notifyDataSetChanged();
     }

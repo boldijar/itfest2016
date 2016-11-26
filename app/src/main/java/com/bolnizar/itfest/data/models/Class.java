@@ -11,6 +11,8 @@ public class Class {
     public int schoolId;
     public School[] schools;
 
+    public boolean subscribed;
+
     @Override
     public String toString() {
         return "Class{" +
