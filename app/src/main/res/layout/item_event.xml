@@ -14,13 +14,29 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/class_name"
+            android:id="@+id/event_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/class_school"
+            android:id="@+id/event_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:alpha=".7"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/event_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:alpha=".7"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/event_room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -29,13 +45,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/class_save"
+        android:id="@+id/event_navigation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="10dp"
         android:background="?attr/selectableItemBackground"
-        android:text="@string/subscribe"
+        android:text="@string/get_directions"
         android:textColor="@color/colorAccent"
         android:textSize="15sp"/>
 

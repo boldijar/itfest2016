@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.bolnizar.itfest.R;
 import com.bolnizar.itfest.data.BooleanPreference;
@@ -14,9 +15,15 @@ import com.bolnizar.itfest.utils.Constants;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import timber.log.Timber;
 
 public class HomeActivity extends AppCompatActivity {
+
+    @BindView(R.id.home_add_classes)
+    View mAddClass;
 
     @Inject
     @Named(Constants.PREF_USER_MODERATOR)
@@ -28,7 +35,19 @@ public class HomeActivity extends AppCompatActivity {
         InjectionHelper.getApplicationComponent(this).inject(this);
         Timber.d("User is moderator ? " + mUserModerator.get());
         setContentView(R.layout.activity_home);
+        mAddClass.setVisibility(mUserModerator.get() ? View.VISIBLE : View.GONE);
+        ButterKnife.bind(this);
         setTitle(R.string.app_name);
+    }
+
+    @OnClick(R.id.home_search_classes)
+    void search() {
+        startActivity(new Intent(this, ClassesActivity.class));
+    }
+
+    @OnClick(R.id.home_add_classes)
+    void addClass() {
+        startActivity(new Intent(this, AddClassActivity.class));
     }
 
     @Override
@@ -48,4 +67,5 @@ public class HomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

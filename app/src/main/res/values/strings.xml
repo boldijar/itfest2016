@@ -26,4 +26,10 @@
     <string name="unsubscribe">unsubscribe</string>
     <string name="subscribed_success">Subscribed successfully</string>
     <string name="unsubscribed_success">Unsubscribed successfully</string>
+    <string name="class_events">Class events</string>
+    <string name="get_directions">get directions</string>
+    <string name="repeating_every">repeating every %d days</string>
+    <string name="search_classess">Search classes</string>
+    <string name="addclas">Add class</string>
+    <string name="addclass">Add class</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.bolnizar.itfest"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.bolnizar.itfest"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -15,7 +14,11 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".activities.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity">
         </activity>
@@ -24,11 +27,6 @@
         <activity android:name=".activities.ModeratorPanelActivity">
         </activity>
         <activity android:name=".activities.ClassesActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -43,6 +41,11 @@
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.bolnizar.itfest"/>
+
+        <activity android:name=".activities.EventsActivity">
+        </activity>
+        <activity android:name=".activities.AddClassActivity">
+        </activity>
     </application>
 
 </manifest>

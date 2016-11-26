@@ -56,12 +56,17 @@ public class ClassesActivity extends BaseActivity implements ClassesView, Subscr
     }
 
     @Override
-    public void clicked(Class clas, boolean wantsToSubscribe) {
+    public void classButtonclicked(Class clas, boolean wantsToSubscribe) {
         if (wantsToSubscribe) {
             mSubscriptionsPresenter.subscribe(clas.id);
         } else {
             mSubscriptionsPresenter.unsubscribe(clas.id);
         }
+    }
+
+    @Override
+    public void classClicked(Class clas) {
+        startActivity(EventsActivity.createIntent(this, clas.id));
     }
 
     @Override

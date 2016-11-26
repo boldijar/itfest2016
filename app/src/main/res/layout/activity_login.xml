@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:text="mod@gmail.com"
             android:id="@+id/register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,6 +28,7 @@
         <EditText
             android:id="@+id/register_password"
             android:layout_width="match_parent"
+            android:text="mod"
             android:layout_height="wrap_content"
             android:hint="@string/register_password"
             android:inputType="textPassword"/>

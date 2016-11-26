@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bolnizar.itfest.R;
-import com.bolnizar.itfest.data.models.*;
 import com.bolnizar.itfest.data.models.Class;
 import com.bolnizar.itfest.persistance.SubscriptionRecord;
 
@@ -16,7 +15,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Musafir on 11/26/2016.
@@ -55,10 +53,16 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ClassesH
                 clickedPosition(position);
             }
         });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mOnClassClick.classClicked(mClasses.get(position));
+            }
+        });
     }
 
     private void clickedPosition(int position) {
-        mOnClassClick.clicked(mClasses.get(position), !isSubscribed(mClasses.get(position)));
+        mOnClassClick.classButtonclicked(mClasses.get(position), !isSubscribed(mClasses.get(position)));
     }
 
     private boolean isSubscribed(Class clas) {
@@ -96,6 +100,8 @@ public class ClassesAdapter extends RecyclerView.Adapter<ClassesAdapter.ClassesH
     }
 
     public interface OnClassClick {
-        void clicked(Class clas, boolean wantsToSubscribe);
+        void classButtonclicked(Class clas, boolean wantsToSubscribe);
+
+        void classClicked(Class clas);
     }
 }
