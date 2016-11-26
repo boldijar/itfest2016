@@ -4,12 +4,14 @@
               android:layout_height="wrap_content"
               android:orientation="vertical"
               android:paddingBottom="10dp"
-              android:paddingTop="10dp">
+              android:paddingTop="5dp">
 
     <TextView
         android:id="@+id/comment_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:autoLink="web"
         android:textSize="16sp"/>
 
@@ -18,12 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="5dp"
+        android:alpha=".8"
         android:textSize="14sp"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:alpha=".7"
+        android:layout_marginTop="5dp"
+        android:alpha=".2"
         android:background="@color/black"/>
 
 
